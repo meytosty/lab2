@@ -34,7 +34,10 @@ public class MyArrayList<T> implements MyList{
 
     @Override
     public void add(Object item) {
-
+        if(size == arr.length){
+            increaseLen();
+        }
+        arr[size+1] = (T) item;
     }
 
     @Override

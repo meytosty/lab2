@@ -10,7 +10,17 @@ public class MyArrayList<T> implements MyList{
         this.arr = (T[]) new Object[5];
         this.size = 0;
     }
-
+    /**
+     * @function display print list in console
+     * @noparam
+     * @return void
+     */
+    public void display() {
+        for (int i = 0; i < size; i++) {
+            System.out.print(arr[i] + "  ");
+        }
+        System.out.println();
+    }
     /**
      * @function checkIndex of massive
      * @param index of massive
@@ -95,7 +105,7 @@ public class MyArrayList<T> implements MyList{
         if(size == arr.length){ // checking if array have enough space to add new element
             increaseLen(); // increasing size if not
         }
-        arr[size+1] = (T) item; // adding element at the end of array
+        arr[size++] = (T) item; // adding element at the end of array
     }
     /**
      * @function add object to specific index
@@ -109,10 +119,16 @@ public class MyArrayList<T> implements MyList{
         if(size == arr.length){ // checking if array have enough space to add new element
             increaseLen(); // increasing size if not
         }
-        for(int i = index + 1; i < size; i++){ // move elements of array to add element between them
-            arr[i - 1] = arr[i];
+        T[] newArr = (T[]) new Object[arr.length]; // creating new array to swap elements to add new between them
+        for (int i = 0; i < index; i++) {
+            newArr[i] = arr[i];
         }
-        arr[index] = (T) item;
+        for (int i = index; i < size; i++) {
+            newArr[i+1] = arr[i];
+        }
+        newArr[index] = (T) item;
+        arr = newArr;
+        size++;
     }
     /**
      * @function remove delete object from massive
@@ -141,6 +157,7 @@ public class MyArrayList<T> implements MyList{
         for(int i = index + 1; i < size; i++){
             arr[i-1] = arr[i];
         }
+        size--;
         return imposter;
     }
     /**

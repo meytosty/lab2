@@ -22,6 +22,29 @@ public class MyLinkedList<T> implements MyList{
         this.tail = null;
         size = 0;
     }
+
+    /**
+     * @function display print list in console
+     * @noparam
+     * @return void
+     */
+    public void display() {
+        if (size == 0) {
+            System.out.print("empty\n");
+            return;
+        }
+        if (head.next == null) {
+            System.out.println(head.val);
+            return;
+        }
+        System.out.print(head.val + " - ");
+        Node<T> ptr = head.next;
+        while (ptr.next != null) {
+            System.out.print(ptr.val + " - ");
+            ptr = ptr.next;
+        }
+        System.out.print(ptr.val + "\n");
+    }
     /**
      * @function checkIndex of linkedList
      * @param index
@@ -266,7 +289,7 @@ public class MyLinkedList<T> implements MyList{
             return size-1;
         }
         Node<T> ptr = tail.prev;
-        for (int i = size-1; i >= 1; i--) {
+        for (int i = size-2; i >= 0; i--) {
             if (ptr.val == newNode.val) {
                 return i;
             }

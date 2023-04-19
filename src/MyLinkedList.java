@@ -17,6 +17,11 @@ public class MyLinkedList<T> implements MyList{
         this.tail = null;
         size = 0;
     }
+    public void checkIndex(int index) {
+        if (index < 0 || index > size) {
+            throw new IndexOutOfBoundsException();
+        }
+    }
     @Override
     public int size() {
         return size;

@@ -32,7 +32,13 @@ public class MyArrayList<T> implements MyList{
 
     @Override
     public boolean remove(Object item) {
-
+        for(int i = 0; i < size; i++){
+            if(arr[i] == item){
+                remove(i);
+                return true;
+            }
+        }
+        return false;
     }
 
     @Override

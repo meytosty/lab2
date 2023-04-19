@@ -32,12 +32,17 @@ public class MyArrayList<T> implements MyList{
 
     @Override
     public boolean remove(Object item) {
-        return false;
+
     }
 
     @Override
     public Object remove(int index) {
-        return null;
+        checkIndex(index);
+        T imposter = arr[index];
+        for(int i = index + 1; i < size; i++){
+            arr[i-1] = arr[i];
+        }
+        return imposter;
     }
 
     @Override

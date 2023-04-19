@@ -42,7 +42,14 @@ public class MyArrayList<T> implements MyList{
 
     @Override
     public void add(Object item, int index) {
-
+        checkIndex(index);
+        if(size == arr.length){
+            increaseLen();
+        }
+        for(int i = index + 1; i < size; i++){
+            arr[i - 1] = arr[i];
+        }
+        arr[index] = (T) item;
     }
 
     @Override

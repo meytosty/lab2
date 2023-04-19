@@ -18,7 +18,7 @@ public class MyArrayList<T> implements MyList{
      **/
     public void checkIndex(int index){
         if (index >= size || index < 0){ // checks is index out of range or not
-            throw new IndexOutOfBoundsException();
+            throw new IndexOutOfBoundsException(); // throwing error if not
         }
     }
 
@@ -28,11 +28,11 @@ public class MyArrayList<T> implements MyList{
      * @return void
      */
     public void increaseLen(){
-        T[] newArr = (T[]) new Object[arr.length*2];
+        T[] newArr = (T[]) new Object[arr.length*2]; // creating new array of double size of old
         for(int i = 0; i < size; i++){
             newArr[i] = arr[i];
         }
-        arr = newArr;
+        arr = newArr; // change arrays
     }
     /**
      * @function isSortable checks if massive can be sorted or not
@@ -55,12 +55,12 @@ public class MyArrayList<T> implements MyList{
             }
         }
         if (intSize == size) {
-            return "int";
+            return "int"; // returns "int" if array contains all integers
         }
         if (doubleSize == size) {
-            return "double";
+            return "double"; // returns "double" if array contains all integers
         }
-        return "0";
+        return "0"; // returns "0" if array is not sortable
     }
     /**
      * @function size give the size of the massive
@@ -79,7 +79,7 @@ public class MyArrayList<T> implements MyList{
     @Override
     public boolean contains(Object o) {
         for(int i = 0; i < size; i++){
-            if(arr[i] == o){
+            if(arr[i] == o){ // if element in array returns true
                 return true;
             }
         }
@@ -92,10 +92,10 @@ public class MyArrayList<T> implements MyList{
      * **/
     @Override
     public void add(Object item) {
-        if(size == arr.length){
-            increaseLen();
+        if(size == arr.length){ // checking if array have enough space to add new element
+            increaseLen(); // increasing size if not
         }
-        arr[size+1] = (T) item;
+        arr[size+1] = (T) item; // adding element at the end of array
     }
     /**
      * @function add object to specific index
@@ -105,11 +105,11 @@ public class MyArrayList<T> implements MyList{
      * **/
     @Override
     public void add(Object item, int index) {
-        checkIndex(index);
-        if(size == arr.length){
-            increaseLen();
+        checkIndex(index); // check is index acceptable
+        if(size == arr.length){ // checking if array have enough space to add new element
+            increaseLen(); // increasing size if not
         }
-        for(int i = index + 1; i < size; i++){
+        for(int i = index + 1; i < size; i++){ // move elements of array to add element between them
             arr[i - 1] = arr[i];
         }
         arr[index] = (T) item;
@@ -122,12 +122,12 @@ public class MyArrayList<T> implements MyList{
     @Override
     public boolean remove(Object item) {
         for(int i = 0; i < size; i++){
-            if(arr[i] == item){
+            if(arr[i] == item){ // if element in array remove it and return true
                 remove(i);
                 return true;
             }
         }
-        return false;
+        return false; // return false if element wasn't removed
     }
     /**
      * @function remove delete object from massive
@@ -136,8 +136,8 @@ public class MyArrayList<T> implements MyList{
      * **/
     @Override
     public Object remove(int index) {
-        checkIndex(index);
-        T imposter = arr[index];
+        checkIndex(index); // check is index acceptable
+        T imposter = arr[index]; // temporary storing removing element
         for(int i = index + 1; i < size; i++){
             arr[i-1] = arr[i];
         }
@@ -150,7 +150,7 @@ public class MyArrayList<T> implements MyList{
      * **/
     @Override
     public void clear() {
-        this.arr = (T[]) new Object[5];
+        this.arr = (T[]) new Object[5]; // clearing array by creating a new empty array
         this.size = 0;
     }
     /**
@@ -160,7 +160,7 @@ public class MyArrayList<T> implements MyList{
      * **/
     @Override
     public Object get(int index) {
-        checkIndex(index);
+        checkIndex(index);  // check is index acceptable
         return arr[index];
     }
     /**
@@ -187,7 +187,7 @@ public class MyArrayList<T> implements MyList{
         int last = -1;
         for(int i = 0; i < size; i++){
             if(arr[i] == o){
-                last = i;
+                last = i; // temporary store index, after if we have another value to change
             }
         }
         return last;
@@ -199,8 +199,9 @@ public class MyArrayList<T> implements MyList{
      * **/
     @Override
     public void sort() {
-        if (isSortable().equals("int")) {
+        if (isSortable().equals("int")) { // sorting if array contains all integers
             int n = size;
+            // bubble sort
             for (int i = 0; i < n-1; i++)
                 for (int j = 0; j < n-i-1; j++)
                     if ((int) arr[j] > (int) arr[j+1])
@@ -210,8 +211,9 @@ public class MyArrayList<T> implements MyList{
                         arr[j+1] = temp;
                     }
         }
-        if (isSortable().equals("double")) {
+        if (isSortable().equals("double")) { // sorting if array contains all doubles
             int n = size;
+            // bubble sort
             for (int i = 0; i < n-1; i++)
                 for (int j = 0; j < n-i-1; j++)
                     if ((Double) arr[j] > (Double) arr[j+1])

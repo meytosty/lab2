@@ -28,8 +28,8 @@ public class MyLinkedList<T> implements MyList{
      * @return void
      **/
     public void checkIndex(int index) {
-        if (index < 0 || index > size) {
-            throw new IndexOutOfBoundsException();
+        if (index < 0 || index > size) { // checks is index out of range or not
+            throw new IndexOutOfBoundsException(); // throwing error if not
         }
     }
     public boolean isSortable() {
@@ -49,8 +49,7 @@ public class MyLinkedList<T> implements MyList{
             }
             ptr = ptr.next;
         }
-        System.out.println(intSize + " " + doubleSize);
-        if (intSize == size || doubleSize == size || doubleSize + intSize == size) {
+        if (intSize == size || doubleSize == size || doubleSize + intSize == size) { // if list contains only integers or doubles return true to sort
             return true;
         }
         return false;
@@ -71,7 +70,7 @@ public class MyLinkedList<T> implements MyList{
      * **/
     @Override
     public boolean contains(Object o) {
-        if (head.val == o) {
+        if (head.val == o) { // checking if we need to work with head of list
             return true;
         }
         Node<T> ptr = head.next;
@@ -91,7 +90,7 @@ public class MyLinkedList<T> implements MyList{
     @Override
     public void add(Object item) {
         Node<T> newNode = new Node<T>((T) item, null, null);
-        if (head == null) {
+        if (head == null) {  // checking if we need to work with head of list
             head = newNode;
             tail = head;
         }
@@ -137,7 +136,7 @@ public class MyLinkedList<T> implements MyList{
     @Override
     public boolean remove(Object item) {
         Node<T> newNode = new Node<T>((T) item, null, null);
-        if (head.val == newNode.val) {
+        if (head.val == newNode.val) {  // checking if we need to work with head of list
             head = head.next;
             head.prev = null;
             size--;
@@ -165,7 +164,7 @@ public class MyLinkedList<T> implements MyList{
     @Override
     public Object remove(int index) {
         checkIndex(index);
-        if (index == 0) {
+        if (index == 0) {  // checking if we need to work with head of list
             Object removed = head.val;
             if (size == 1) {
                 head = null;
@@ -213,10 +212,15 @@ public class MyLinkedList<T> implements MyList{
         size = 0;
     }
 
+    /**
+     * @function get find out item with index
+     * @param index index of finding item
+     * @return Object
+     */
     @Override
     public Object get(int index) {
         checkIndex(index);
-        if (index == 0) {
+        if (index == 0) {  // checking if we need to work with head of list
             return head.val;
         }
         Node<T> newNode = head.next;
@@ -229,10 +233,15 @@ public class MyLinkedList<T> implements MyList{
         return null;
     }
 
+    /**
+     * @function indexOf find first entering of item in list
+     * @param o item to find index
+     * @return int
+     */
     @Override
     public int indexOf(Object o) {
         Node<T> newNode = new Node<T>((T) o, null, null);
-        if (head.val == newNode.val) {
+        if (head.val == newNode.val) {  // checking if we need to work with head of list
             return 0;
         }
         Node<T> ptr = head.next;
@@ -245,10 +254,15 @@ public class MyLinkedList<T> implements MyList{
         return -1;
     }
 
+    /**
+     * @function lastIndexOf find last entering of item in list
+     * @param o item to find index
+     * @return int
+     */
     @Override
     public int lastIndexOf(Object o) {
         Node<T> newNode = new Node<T>((T) o, null, null);
-        if (tail.val == newNode.val) {
+        if (tail.val == newNode.val) {  // checking if we need to work with tail of list
             return size-1;
         }
         Node<T> ptr = tail.prev;
@@ -261,9 +275,15 @@ public class MyLinkedList<T> implements MyList{
         return -1;
     }
 
+    /**
+     * @function sort sorting elements in list by insertion sort
+     * @noparam
+     * @return void
+     */
     @Override
     public void sort() {
         if (isSortable()) {
+            // insertion sort
             Node<T> front = head;
             Node<T> back = null;
             while (front != null) {
@@ -278,6 +298,12 @@ public class MyLinkedList<T> implements MyList{
 
     }
 
+    /**
+     * @function swapValue swap two Nodes in list to helps sort
+     * @param first first node to swap
+     * @param second second node to swap
+     * @return void
+     */
     public void swapValue(Node<T> first, Node<T> second) {
         Object value = first.val;
         first.val = second.val;

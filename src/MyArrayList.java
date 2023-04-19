@@ -17,6 +17,29 @@ public class MyArrayList<T> implements MyList{
         }
         arr = newArr;
     }
+    public String isSortable() {
+        int intSize = 0;
+        int doubleSize = 0;
+        for (int i = 0; i < size; i++) {
+            try {
+                int value = (Integer) arr[i];
+                intSize++;
+            } catch (ClassCastException e) {
+            }
+            try {
+                double tempD = (Double) arr[i];
+                doubleSize++;
+            } catch (ClassCastException e) {
+            }
+        }
+        if (intSize == size) {
+            return "int";
+        }
+        if (doubleSize == size) {
+            return "double";
+        }
+        return "0";
+    }
     @Override
     public int size() {
         return size;

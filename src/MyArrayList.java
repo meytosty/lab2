@@ -131,6 +131,27 @@ public class MyArrayList<T> implements MyList{
 
     @Override
     public void sort() {
-
+        if (isSortable().equals("int")) {
+            int n = size;
+            for (int i = 0; i < n-1; i++)
+                for (int j = 0; j < n-i-1; j++)
+                    if ((int) arr[j] > (int) arr[j+1])
+                    {
+                        T temp = arr[j];
+                        arr[j] = arr[j+1];
+                        arr[j+1] = temp;
+                    }
+        }
+        if (isSortable().equals("double")) {
+            int n = size;
+            for (int i = 0; i < n-1; i++)
+                for (int j = 0; j < n-i-1; j++)
+                    if ((Double) arr[j] > (Double) arr[j+1])
+                    {
+                        T temp = arr[j];
+                        arr[j] = arr[j+1];
+                        arr[j+1] = temp;
+                    }
+        }
     }
 }

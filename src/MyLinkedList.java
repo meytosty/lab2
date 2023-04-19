@@ -22,6 +22,30 @@ public class MyLinkedList<T> implements MyList{
             throw new IndexOutOfBoundsException();
         }
     }
+    public boolean isSortable() {
+        Node<T> ptr = head;
+        int intSize = 0;
+        int doubleSize = 0;
+        for (int i = 1; i <= size; i++) {
+            try {
+                int value = (Integer) ptr.val ;
+                intSize++;
+            } catch (ClassCastException e) {
+            }
+            try {
+                double tempD = (Double) ptr.val;
+                doubleSize++;
+            } catch (ClassCastException e) {
+            }
+            ptr = ptr.next;
+        }
+        System.out.println(intSize + " " + doubleSize);
+        if (intSize == size || doubleSize == size || doubleSize + intSize == size) {
+            return true;
+        }
+        return false;
+    }
+}
     @Override
     public int size() {
         return size;

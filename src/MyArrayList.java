@@ -80,7 +80,13 @@ public class MyArrayList<T> implements MyList{
 
     @Override
     public int lastIndexOf(Object o) {
-
+        int last = -1;
+        for(int i = 0; i < size; i++){
+            if(arr[i] == o){
+                last = i;
+            }
+        }
+        return last;
     }
 
     @Override

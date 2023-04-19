@@ -12,11 +12,21 @@ public class MyLinkedList<T> implements MyList{
     private Node<T> head;
     private Node<T> tail;
     private int size;
+    /**
+     * @function constructor
+     * @noparams
+     * @return void
+     * **/
     public MyLinkedList() {
         this.head = null;
         this.tail = null;
         size = 0;
     }
+    /**
+     * @function checkIndex of linkedList
+     * @param index
+     * @return void
+     **/
     public void checkIndex(int index) {
         if (index < 0 || index > size) {
             throw new IndexOutOfBoundsException();
@@ -45,14 +55,20 @@ public class MyLinkedList<T> implements MyList{
         }
         return false;
     }
-
+    /**
+     * @function size return the length of the linkedList
+     * @noparams
+     * @return int
+     * **/
     @Override
     public int size() {
         return size;
     }
-    public boolean isEmpty() {
-        return head == null;
-    }
+    /**
+     * @function contains true if Object o in the LinkedList
+     * @param o Object
+     * @return boolean
+     * **/
     @Override
     public boolean contains(Object o) {
         if (head.val == o) {
@@ -67,7 +83,11 @@ public class MyLinkedList<T> implements MyList{
         }
         return false;
     }
-
+    /**
+     * @function add adds Object to the LinkedList
+     * @param item Object
+     * @return void
+     * **/
     @Override
     public void add(Object item) {
         Node<T> newNode = new Node<T>((T) item, null, null);
@@ -82,7 +102,12 @@ public class MyLinkedList<T> implements MyList{
         }
         size++;
     }
-
+    /**
+     * @function add adds object to the specific index
+     * @param item object to add
+     * @param index index where to add
+     * @return void
+     * **/
     @Override
     public void add(Object item, int index) {
         checkIndex(index);
@@ -104,7 +129,11 @@ public class MyLinkedList<T> implements MyList{
         }
         size++;
     }
-
+    /**
+     * @function remove delete object from LinkedList
+     * @param item object to remove
+     * @return boolean
+     * **/
     @Override
     public boolean remove(Object item) {
         Node<T> newNode = new Node<T>((T) item, null, null);
@@ -128,7 +157,11 @@ public class MyLinkedList<T> implements MyList{
         }
         return false;
     }
-
+    /**
+     * @function remove delete object from LinkedList
+     * @param index index to delete
+     * @return Object
+     * **/
     @Override
     public Object remove(int index) {
         checkIndex(index);
@@ -168,7 +201,11 @@ public class MyLinkedList<T> implements MyList{
         }
         return null;
     }
-
+    /**
+     * @function clear clears LinkedList
+     * @noparam
+     * @return void
+     * **/
     @Override
     public void clear() {
         this.head = null;

@@ -21,7 +21,9 @@ public class MyLinkedList<T> implements MyList{
     public int size() {
         return size;
     }
-
+    public boolean isEmpty() {
+        return head == null;
+    }
     @Override
     public boolean contains(Object o) {
         return false;

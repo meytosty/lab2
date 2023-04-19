@@ -1,4 +1,14 @@
 public class MyLinkedList implements MyList{
+    private class Node<T> {
+        T val;
+        Node<T> next;
+        Node<T> prev;
+        Node(T val, Node<T> next, Node<T> prev) {
+            this.val = val;
+            this.next = next;
+            this.prev = prev;
+        }
+    }
     @Override
     public int size() {
         return 0;

@@ -77,6 +77,7 @@ public class Main {
         System.out.println("Давай добавим элементы в массив, и помни, если хочешь иметь доступ к сортировке, используй тип данных int или double");
         System.out.println("Введи -1 чтобы закончить добавление");
         int item;
+        String m;
         while (true) {
             item = sc.nextInt();
             if (item == -1) break;
@@ -86,9 +87,19 @@ public class Main {
         list.display();
         System.out.println("--> Размер твоего массива сейчас: " + list.size());
 
+        System.out.print("\nДавайте добавим список элементов на индекс. Введите список элементов и индекс: ");
+        System.out.print("\nВведите индекс: ");
+        int index = sc.nextInt();
+        System.out.print("\nCписок элементов: ");
+        m = sc.next();
+        list.addall(m, index);
+        System.out.print("--> Твой массив: ");
+        list.display();
+        System.out.println("--> Размер твоего массива сейчас: " + list.size());
+
         System.out.print("\nДавайте добавим элемент на индекс. Введите элемент и индекс через пробел: ");
         item = sc.nextInt();
-        int index = sc.nextInt();
+        index = sc.nextInt();
         list.add(item, index);
         System.out.print("--> Твой массив: ");
         list.display();
@@ -135,6 +146,7 @@ public class Main {
         list.sort();
         System.out.print("--> Твой массив после сортировки: ");
         list.display();
+
     }
     public static void main(String[] args) {
         //testMyArrayList();

@@ -318,7 +318,6 @@ public class MyLinkedList<T> implements MyList{
                 front = front.next;
             }
         }
-
     }
 
     /**
@@ -331,5 +330,25 @@ public class MyLinkedList<T> implements MyList{
         Object value = first.val;
         first.val = second.val;
         second.val = (T) value;
+    }
+    public void addall(Object m, int index){
+        checkIndex(index);
+        Node<T> newNode = new Node<T>((T) m, null, null);
+        if(index == 0) {
+            add(m);
+            return;
+        }
+        Node<T> ptr = head;
+        for(int i = 1; i <= size; i++){
+            if(i == index){
+                Node<T> temp = ptr.next;
+                ptr.next = newNode;
+                newNode.prev = ptr;
+                newNode.next = temp;
+                temp.prev = newNode;
+            }
+            ptr = ptr.next;
+        }
+        size++;
     }
 }

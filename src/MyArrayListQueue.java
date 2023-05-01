@@ -4,6 +4,11 @@ public class MyArrayListQueue<T> {
     public MyArrayListQueue() {
         this.list = new MyArrayList<>();
     }
+    private void isEmptyThrowException() throws NoSuchFieldException {
+        if (isEmpty()) {
+            throw new NoSuchFieldException();
+        }
+    }
     public void enqueue(T item) {
         list.add(item, 0);
     }

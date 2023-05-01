@@ -12,4 +12,8 @@ public class MyArrayListStack<T> {
     public T pop() {
         return (T) list.remove(0);
     }
+
+    public T peek() {
+        return (T) list.get(0);
+    }
 }

@@ -146,11 +146,35 @@ public class Main {
         list.sort();
         System.out.print("--> Твой массив после сортировки: ");
         list.display();
-
+    }
+    public static void testStack() {
+        Scanner sc = new Scanner(System.in);
+        MyArrayListStack stack = new MyArrayListStack();
+        System.out.println("Хелоу, твой стек с типом элементов integer пуст!\nДавай добавим элементы в массив\n" +
+                "Введи -1 чтобы закончить добавление");
+        int n = sc.nextInt();
+        while (n != -1) {
+            stack.push(n);
+            n = sc.nextInt();
+        }
+        stack.display();
+        System.out.println("Теперь, давай узнаем какой элемент первый в стеке\n" +
+                "Первый - " + stack.peek());
+        System.out.print("\nИтак, давай удалим элемент и узнаем какой элемент первый в стеке заново\n" +
+                "Сколько элементов ты хочешь удалить? (1-" + stack.size() + "): ");
+        int r = sc.nextInt();
+        for (int i = 0; i < r; i++) {
+            System.out.println("Удаленный элемент - " + stack.pop());
+        }
+        System.out.println("Первый - " + stack.peek());
+        System.out.println();
+        stack.display();
+        System.out.println("Итак, давай проверим пуст ли твой стек - " + stack.isEmpty());
     }
     public static void main(String[] args) {
         //testMyArrayList();
-        testMyLinkedList();
+        //testMyLinkedList();
+        testStack();
 
     }
 }

@@ -4,7 +4,12 @@ public class MyArrayListStack<T> {
     public MyArrayListStack() {
         this.list = new MyArrayList<>();
     }
-
+    public void display() {
+        System.out.println("Your stack right now like this:");
+        for(int i = 0; i < size(); i++) { // going through the stack
+            System.out.println(list.get(i));
+        }
+    }
     /**
      * isEmptyThrowException - throwing exception if stack is empty to avoid errors
      * @noparam

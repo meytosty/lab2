@@ -124,7 +124,6 @@ public class MyArrayList<T> implements MyList{
      * **/
     @Override
     public void add(Object item, int index) {
-        checkIndex(index); // check is index acceptable
         if(size == arr.length){ // checking if array have enough space to add new element
             increaseLen(); // increasing size if not
         }

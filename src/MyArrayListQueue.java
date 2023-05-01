@@ -13,4 +13,7 @@ public class MyArrayListQueue<T> {
     public T peek() {
         return (T) list.get(list.size()-1);
     }
+    public boolean isEmpty() {
+        return list.isEmpty();
+    }
 }

@@ -4,4 +4,7 @@ public class MyArrayListQueue<T> {
     public MyArrayListQueue() {
         this.list = new MyArrayList<>();
     }
+    public void enqueue(T item) {
+        list.add(item);
+    }
 }

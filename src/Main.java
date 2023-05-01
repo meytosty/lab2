@@ -147,10 +147,34 @@ public class Main {
         System.out.print("--> Твой массив после сортировки: ");
         list.display();
     }
+    public static void testQueue() {
+        Scanner sc = new Scanner(System.in);
+        MyArrayListQueue queue = new MyArrayListQueue();
+        System.out.println("Хелоу, твоя очередь с типом элементов integer пуста!\nДавай добавим элементы в очередь\n" +
+                "Введи -1 чтобы закончить добавление");
+        int n = sc.nextInt();
+        while (n != -1) {
+            queue.enqueue(n);
+            n = sc.nextInt();
+        }
+        queue.display();
+        System.out.println("Теперь, давай узнаем какой элемент первый в очереди\n" +
+                "Первый - " + queue.peek());
+        System.out.print("\nИтак, давай удалим элемент и узнаем какой элемент первый в очереди заново\n" +
+                "Сколько элементов ты хочешь удалить? (1-" + queue.size() + "): ");
+        int r = sc.nextInt();
+        for (int i = 0; i < r; i++) {
+            System.out.println("Удаленный элемент - " + queue.dequeue());
+        }
+        System.out.println("Первый - " + queue.peek());
+        System.out.println();
+        queue.display();
+        System.out.println("Итак, давай проверим пуста ли твоя очередь - " + queue.isEmpty());
+    }
     public static void testStack() {
         Scanner sc = new Scanner(System.in);
         MyArrayListStack stack = new MyArrayListStack();
-        System.out.println("Хелоу, твой стек с типом элементов integer пуст!\nДавай добавим элементы в массив\n" +
+        System.out.println("Хелоу, твой стек с типом элементов integer пуст!\nДавай добавим элементы в стек\n" +
                 "Введи -1 чтобы закончить добавление");
         int n = sc.nextInt();
         while (n != -1) {
@@ -174,7 +198,7 @@ public class Main {
     public static void main(String[] args) {
         //testMyArrayList();
         //testMyLinkedList();
-        testStack();
-
+        //testStack();
+        testQueue();
     }
 }

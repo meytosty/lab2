@@ -4,7 +4,13 @@ public class MyArrayListQueue<T> {
     public MyArrayListQueue() {
         this.list = new MyArrayList<>();
     }
-
+    public void display() {
+        System.out.println("Твоя очередь сейчас выглядит так:");
+        for(int i = 0; i < size(); i++) { // going through the queue
+            System.out.print(list.get(i) + " ");
+        }
+        System.out.println();
+    }
     /**
      * isEmptyThrowException - throw exception to avoid errors
      * @noparam

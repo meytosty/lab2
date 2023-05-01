@@ -5,7 +5,7 @@ public class MyArrayListStack<T> {
         this.list = new MyArrayList<>();
     }
     public void display() {
-        System.out.println("Your stack right now like this:");
+        System.out.println("Твой стек сейчас выглядит так:");
         for(int i = 0; i < size(); i++) { // going through the stack
             System.out.println(list.get(i));
         }

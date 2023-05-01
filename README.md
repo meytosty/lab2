@@ -6,6 +6,125 @@
 > **Description:** This function run and test all methods of ***MyArrayList.java***.
 ### ✒️ testMyLinkedList()
 > **Description:** This function run and test all methods of ***MyLinkedList.java***.
+### ✒️ testStack()
+> **Description:** This function run and test all methods of ***MyArrayListStack.java***.
+### ✒️ testQueue()
+> **Description:** This function run and test all methods of ***MyArrayListQueue.java***.
+
+## ⭐ MyArrayListStack.java
+### ✒️ display()
+> **Description:** This function displaying all elements of stack in console.
+```java
+public void display() {
+  System.out.println("Твой стек сейчас выглядит так:");
+  for(int i = 0; i < size(); i++) {
+    System.out.println(list.get(i));
+  }
+}
+```
+### ✒️ isEmptyThrowException()
+> **Description:** This function throwing exception if stack is empty to avoid errors.
+```java
+public void isEmptyThrowException() {
+  if (isEmpty()) {
+    throw new EmptyStackException();
+  }
+}
+```
+### ✒️ push()
+> **Description:** This function adding element to top of the stack.
+```java
+public void push(T item) {
+  this.list.add(item, 0);
+}
+```
+### ✒️ pop()
+> **Description:** This function remove specified element and return element at the top of stack.
+```java
+public T pop() {
+  return (T) list.remove(0);
+}
+```
+### ✒️ peek()
+> **Description:** This function returns the element at the top of the stack without removing it.
+```java
+public T peek() {
+  isEmptyThrowException();
+  return (T) list.get(0);
+}
+```
+### ✒️ isEmpty()
+> **Description:** This function returns true if the stack is empty or false if it is not.
+```java
+public boolean isEmpty() {
+  return list.isEmpty();
+}
+```
+### ✒️ size()
+> **Description:** This function returns the number of elements in the stack.
+```java
+public int size() {
+  return list.size();
+}
+```
+
+## ⭐ MyArrayListQueue.java
+### ✒️ display()
+> **Description:** This function displaying all elements of queue in console.
+```java
+public void display() {
+  System.out.println("Твоя очередь сейчас выглядит так:");
+  for(int i = 0; i < size(); i++) { // going through the queue
+    System.out.print(list.get(i) + " ");
+  }
+  System.out.println();
+}
+```
+### ✒️ isEmptyThrowException() 
+> **Description:** This function throwing exception if queue is empty to avoid errors.
+```java
+public void isEmptyThrowException() throws NoSuchElementException {
+  if (isEmpty()) {
+    throw new NoSuchElementException();
+  }
+}
+```
+### ✒️ enqueue()
+> **Description:** This function adds an element to the back of the queue.
+```java
+public void enqueue(T item) {
+  this.list.add(item, 0);
+}
+```
+### ✒️ dequeue()
+> **Description:** This function removes and returns the front element of the queue.
+```java
+public T pop() {
+  return (T) list.remove(list.size()-1);
+}
+```
+### ✒️ peek()
+> **Description:** This function returns the front element of the queue without removing it.
+```java
+public T peek() throws NoSuchElementException {
+  isEmptyThrowException();
+  return (T) list.get(list.size()-1);
+}
+```
+### ✒️ isEmpty()
+> **Description:** This function returns true if the queue is empty or false if it is not.
+```java
+public boolean isEmpty() {
+  return list.isEmpty();
+}
+```
+### ✒️ size()
+> **Description:** This function returns the number of elements in the queue.
+```java
+public int size() {
+  return list.size();
+}
+```
 
 ## ⭐ MyArrayList.java
 ### ✒️ display()

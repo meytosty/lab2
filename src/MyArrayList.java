@@ -21,6 +21,12 @@ public class MyArrayList<T> implements MyList{
         }
         System.out.println();
     }
+
+    /**
+     * @function isEmpty checks is list empty or not
+     * @noparam
+     * @return boolean
+     */
     public boolean isEmpty() {
         return size == 0;
     }

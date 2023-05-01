@@ -5,6 +5,9 @@ public class MyArrayListQueue<T> {
         this.list = new MyArrayList<>();
     }
     public void enqueue(T item) {
-        list.add(item);
+        list.add(item, 0);
+    }
+    public T dequeue() {
+        return (T) list.remove(list.size()-1);
     }
 }

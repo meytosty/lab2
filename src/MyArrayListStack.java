@@ -14,10 +14,12 @@ public class MyArrayListStack<T> {
     }
 
     public T pop() {
+        isEmptyThrowException();
         return (T) list.remove(0);
     }
 
     public T peek() {
+        isEmptyThrowException();
         return (T) list.get(0);
     }
     public boolean isEmpty() {

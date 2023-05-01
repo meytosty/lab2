@@ -241,4 +241,12 @@ public class MyArrayList<T> implements MyList{
                     }
         }
     }
+
+    public void addAll(Object[] ram, int index) {
+        int j = index;
+        for (int i = 0; i < ram.length; i++) {
+            arr[j] = (T) ram[i];
+            j++;
+        }
+    }
 }

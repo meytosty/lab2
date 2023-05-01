@@ -15,7 +15,8 @@ public class MyArrayListQueue<T> {
     public T dequeue() {
         return (T) list.remove(list.size()-1);
     }
-    public T peek() {
+    public T peek() throws NoSuchFieldException {
+        isEmptyThrowException();
         return (T) list.get(list.size()-1);
     }
     public boolean isEmpty() {

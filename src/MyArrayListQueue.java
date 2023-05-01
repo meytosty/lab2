@@ -4,9 +4,9 @@ public class MyArrayListQueue<T> {
     public MyArrayListQueue() {
         this.list = new MyArrayList<>();
     }
-    private void isEmptyThrowException() throws NoSuchFieldException {
+    private void isEmptyThrowException() throws NoSuchElementException {
         if (isEmpty()) {
-            throw new NoSuchFieldException();
+            throw new NoSuchElementException();
         }
     }
     public void enqueue(T item) {
@@ -15,7 +15,7 @@ public class MyArrayListQueue<T> {
     public T dequeue() {
         return (T) list.remove(list.size()-1);
     }
-    public T peek() throws NoSuchFieldException {
+    public T peek() throws NoSuchElementException {
         isEmptyThrowException();
         return (T) list.get(list.size()-1);
     }

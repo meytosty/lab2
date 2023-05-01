@@ -21,6 +21,9 @@ public class MyArrayList<T> implements MyList{
         }
         System.out.println();
     }
+    public boolean isEmpty() {
+        return size == 0;
+    }
     /**
      * @function checkIndex of massive
      * @param index of massive

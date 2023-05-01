@@ -8,4 +8,8 @@ public class MyArrayListStack<T> {
     public void push(T item) {
         this.list.add(item, 0);
     }
+
+    public T pop() {
+        return (T) list.remove(0);
+    }
 }
